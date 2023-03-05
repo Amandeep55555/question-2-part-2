@@ -1,0 +1,22 @@
+def area_chart(date, global_radiation, sunshine):
+    """
+    This function creates a line plot using 
+    global_radiation and sunshine in London for year 2020
+    """
+fig, ax = plt.subplots(figsize=(20, 15))
+
+ax.plot(date, sunshine, color='black', label='sunshine')
+ax.fill_between(date, sunshine,color='gold', alpha=0.2)
+ax.plot(date, max_temp, color='blue', label='Global radiation')
+ax.fill_between(date, global_radiation, color='yellow', alpha=0.2)
+ax.grid(color='grey', linestyle='--', linewidth=0.001, alpha=0.3)
+plt.xlabel('Month')
+plt.ylabel('global_radiation and sunshine')
+plt.title('global_radiation, sunshine in London for year 2020')
+ax.legend()
+
+
+date = df_20.index
+global_radiation = df_20['global_radiation']
+sunshine = df_20['sunshine']
+area_chart(date, global_radiation, sunshine)
